@@ -78,7 +78,7 @@ docker run -d -p 3000:3000 --name prismademo --env-file .env prismademo
 docker build . -t prismademo
 docker build . -t prismademo
 npm run dev
-```s
+```
 
 # Utility functions
 - push the updated database schema
