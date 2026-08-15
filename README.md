@@ -76,4 +76,18 @@ npm run dev
 - push the updated database schema
 - run the prisma browser
 
+# Setting up the github repo:
+1. Create the project in github and get the link
+2. Add the following secrets to the repo (Settings > Secrets and variables > Actions > Repository Secrets:
+DOCKER_TOKEN:
+ DOCKER_USERNAME:
+
+git init
+Update .gitignore
+git add .
+git commit -m ‘initial load’
+git branch -M main
+git remote add origin https://github.com/ccudmore/prismademo.git
+git push -u origin main
+
 See https://www.prisma.io/docs/guides/deployment/docker
