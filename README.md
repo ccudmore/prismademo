@@ -84,6 +84,7 @@ DOCKER_TOKEN:
 
 git init
 Update .gitignore
+Add .github/workflows/docker-image.yml
 git add .
 git commit -m ‘initial load’
 git branch -M main
