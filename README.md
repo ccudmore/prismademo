@@ -45,7 +45,7 @@ Craig to do
 Run the following script on the database to create the user that will be used to connect
 
 ```sh
-CREATE USER opencupboard WITH PASSWORD 'mypassword';
+CREATE USER opencupboard WITH PASSWORD 'mypassword' CREATEDB;
 GRANT ALL PRIVILEGES ON DATABASE opencupboard TO opencupboard;
 GRANT ALL PRIVILEGES ON SCHEMA public to opencupboard
 ```
@@ -81,8 +81,14 @@ npm run dev
 ```
 
 # Utility functions
-- push the updated database schema
-- run the prisma browser
+## To push the updated database schema
+```sh
+npx prisma migrate dev/deploy
+```
+## To run the Prisma browser
+```sh
+npx prisma studio
+```
 
 # Setting up the github repo:
 1. Create the project in github and get the link
