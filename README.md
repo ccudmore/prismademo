@@ -31,6 +31,10 @@ npx prisma db push
 npx prisma db seed
 ```
 
+If you're running in a docker image, run the following commands once the container is up:
+docker exec -it prismademo npx prisma db push
+docker exec -it prismademo npx prisma db seed
+
 9. Create Dockerfile, .gitignore and .dockerignore files
 
 10. Push to GitHub
@@ -50,11 +54,15 @@ This an also be done using the Postgres Manager
 
 
 ## Running the project locally
+```sh
 npm run dev
+```
 
 ## Building a local Docker image and running it in Docker
+```sh
 docker build . -t prismademo
 docker run -d -p 3000:3000 --name prismademo --env-file .env prismademo
+```
 
 ## Building a Docker image in GitHub and running it
 
@@ -66,11 +74,11 @@ docker run -d -p 3000:3000 --name prismademo --env-file .env prismademo
 
 
 ## Running the project locally
+```sh
+docker build . -t prismademo
+docker build . -t prismademo
 npm run dev
-
-
-## Building a Docker image in GitHub and running it
-
+```s
 
 # Utility functions
 - push the updated database schema
@@ -80,15 +88,19 @@ npm run dev
 1. Create the project in github and get the link
 2. Add the following secrets to the repo (Settings > Secrets and variables > Actions > Repository Secrets:
 DOCKER_TOKEN:
- DOCKER_USERNAME:
+DOCKER_USERNAME:
 
+```sh
 git init
+```
 Update .gitignore
 Add .github/workflows/docker-image.yml
+```sh
 git add .
 git commit -m ‘initial load’
 git branch -M main
 git remote add origin https://github.com/ccudmore/prismademo.git
 git push -u origin main
+```
 
 See https://www.prisma.io/docs/guides/deployment/docker
