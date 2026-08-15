@@ -34,9 +34,6 @@ services:
     image: prismademo:latest
     container_name: prismademo
     restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@domain.com
-      PGADMIN_DEFAULT_PASSWORD: adminpassword
     env_file:
       - .env
     ports:
