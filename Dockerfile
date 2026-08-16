@@ -2,24 +2,20 @@ FROM node:26-alpine AS base
 WORKDIR /app
 RUN apk add --no-cache openssl
 
-# --- Dummy it would be replaced on by the secret ---
-#ENV DATABASE_URL="postgresql://dummy:dummy@dummy:5432/dummy"
-
 # Install dependencies and build the app
 FROM base AS deps
-#COPY pnpm-lock.yaml ./
 COPY package.json ./
 COPY prisma ./prisma
 RUN npm install
 
 # Rebuild Prisma Client
+# Need to copy client.ts - craig
 RUN npx prisma generate
 
 # --- Build the SvelteKit app ---
 FROM base AS build
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-#CMD ["sh", "-c", "npm run db:deploy && npm run dev"]
 RUN npm run build
 
 # --- Production image ---
