@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../prisma/src/generated/prisma/client.ts"
+import { PrismaClient } from "../../prisma/src/generated/prisma/client";
 import { DATABASE_URL } from "$env/static/private";
 import { PrismaPg } from "@prisma/adapter-pg";
 

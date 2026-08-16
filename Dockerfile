@@ -15,7 +15,12 @@ RUN npx prisma generate
 # --- Build the SvelteKit app ---
 FROM base AS build
 COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/prisma ./prisma
 COPY . .
+
+# Create a build-time .env file so DATABASE_URL is available during build
+RUN echo 'DATABASE_URL="postgresql://postgres:password@postgres:5432/opencupboard"' > .env
+
 RUN npm run build
 
 # --- Production image ---
