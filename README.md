@@ -9,7 +9,7 @@ cd prismademo
 npm i -D @sveltejs/adapter-node
 npm install prisma tsx @types/pg --save-dev
 npm install @prisma/client @prisma/adapter-pg dotenv pg
-npx prisma init --output src/generated/prisma - done to here
+npx prisma init --output src/generated/prisma
 ```
 
 3 edit vite.config.js and change:
